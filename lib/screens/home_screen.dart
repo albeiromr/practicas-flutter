@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final activeColor = Colors.white30;
   final inactiveColor = Colors.white12;
-  Genre? selectedGenre;
+  Genre selectedGenre = Genre.notDefined;
   int height = 160;
   int weight = 60;
   int age = 25;
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("$selectedGenre"),
+        title: Text(renderGenreOption(genero: selectedGenre)),
       ),
       body: SafeArea(
         child: Container(
