@@ -1,45 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:free_practice/screens/screens.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}):super(key: key);
 
-class _MyAppState extends State<MyApp> {
-  int counter = 0;
-
-  void setCounter() {
-    setState(() {
-      counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.blue[50]),
-      child: Center(
-          child: GestureDetector(
-        child: Container(
-          alignment: Alignment.center,
-          height: 90,
-          margin: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              color: Colors.blueGrey[900],
-              borderRadius: BorderRadius.circular(20)),
-          child: Text(
-            "clicked $counter times",
-            textDirection: TextDirection.ltr,
-            style: const TextStyle(fontSize: 35)
-          ),
-        ),
-        onTap: () => setCounter(),
-      )),
+  @override 
+  Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "componente personalizado",
+      theme: ThemeData.dark(),
+      initialRoute: "home",
+      routes: <String, WidgetBuilder>{
+        "home":(context) => const HomeScreen()
+      },
     );
   }
 }
