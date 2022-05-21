@@ -25,6 +25,7 @@ class ContainerPersonalizado extends StatelessWidget {
         alignment: Alignment.center,
         height: height,
         width: width,
+        constraints: const BoxConstraints(maxWidth: 200),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
             color: color,
