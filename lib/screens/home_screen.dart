@@ -4,7 +4,6 @@ import 'package:free_practice/components/components.dart';
 
 import '../helpers/genre_enum.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -13,7 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   final activeColor = Colors.white30;
   final inactiveColor = Colors.white12;
   Genre selectedGenre = Genre.notDefined;
@@ -24,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final double windowWidth = MediaQuery.of(context).size.width;//mediaquery
     return Scaffold(
       appBar: AppBar(
         title: Text(renderGenreOption(genero: selectedGenre)),
@@ -37,11 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ContainerPersonalizado(
-                    width: 188,
+                    width: windowWidth * 0.45,
                     height: 70,
-                    color: selectedGenre == Genre.male? activeColor : inactiveColor,
-                    onTap: () =>  setState(() {
-                        selectedGenre = Genre.male;
+                    color: selectedGenre == Genre.male
+                        ? activeColor
+                        : inactiveColor,
+                    onTap: () => setState(() {
+                      selectedGenre = Genre.male;
                     }),
                     child: const Text(
                       'Male',
@@ -49,11 +50,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   ContainerPersonalizado(
-                    width: 188,
+                    width: windowWidth * 0.45,
                     height: 70,
-                    color: selectedGenre == Genre.female ? activeColor : inactiveColor,
+                    color: selectedGenre == Genre.female
+                        ? activeColor
+                        : inactiveColor,
                     onTap: () => setState(() {
-                        selectedGenre = Genre.female;
+                      selectedGenre = Genre.female;
                     }),
                     child: const Text(
                       'Female',
